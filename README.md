@@ -1,8 +1,21 @@
 # VisualGraphs
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/visual_graphs`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Usage
 
-TODO: Delete this and the text above, and describe your gem
+```ruby
+graph = Graph.new(path_to_file)
+graph.vertices #return list of vertices
+```
+## Data formats
+
+```json
+{
+  "1":[2],
+  "2":[3],
+  "3":[1]
+}
+```
+
 
 ## Installation
 
