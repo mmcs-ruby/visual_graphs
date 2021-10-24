@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "../test/test_helper.rb"
+require_relative "../test/test_helper.rb"
 class VisualGraphsTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::VisualGraphs::VERSION
