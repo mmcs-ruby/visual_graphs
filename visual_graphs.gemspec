@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["poganesyan@sfedu.ru"]
 
   spec.summary       = "visualisation graph library"
-  spec.description   = "visualisation graph librar"
+  spec.description   = "visualisation graph library"
   spec.homepage      = "https://github.com/mmcs-ruby/visual_graphs"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
