@@ -1,3 +1,7 @@
+[![Build](https://github.com/josephjoguts/visual_graphs/actions/workflows/main.yml/badge.svg)](https://github.com/mmcs-ruby/primitives/actions/workflows/main.yml)
+<a href="https://codeclimate.com/github/josephjoguts/visual_graphs/maintainability"><img src="https://api.codeclimate.com/v1/badges/d424b22ca6482d937001/maintainability" /></a>
+<a href="https://codeclimate.com/github/josephjoguts/visual_graphs/test_coverage"><img src="https://api.codeclimate.com/v1/badges/d424b22ca6482d937001/test_coverage" /></a>
+
 # VisualGraphs
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/visual_graphs`. To experiment with that code, run `bin/console` for an interactive prompt.
