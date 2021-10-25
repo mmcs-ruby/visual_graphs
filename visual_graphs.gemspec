@@ -8,8 +8,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["mmcs-ruby"]
   spec.email         = ["poganesyan@sfedu.ru"]
 
-  spec.summary       = "visualisation graph library"
-  spec.description   = "visualisation graph library"
+
+  spec.summary       = "Visualisation graph library"
+  spec.description   = "Visualisation graph library"
+
   spec.homepage      = "https://github.com/mmcs-ruby/visual_graphs"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.5.0"
