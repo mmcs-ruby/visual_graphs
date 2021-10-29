@@ -1,6 +1,7 @@
-[![Build](https://github.com/josephjoguts/visual_graphs/actions/workflows/main.yml/badge.svg)](https://github.com/mmcs-ruby/josephjoguts/visual_graphs/workflows/main.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3e77368425d8822bba1d/maintainability)](https://codeclimate.com/github/josephjoguts/visual_graphs/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3e77368425d8822bba1d/test_coverage)](https://codeclimate.com/github/josephjoguts/visual_graphs/test_coverage)
+[![Build](https://github.com/mmcs-ruby/visual_graphs/actions/workflows/main.yml/badge.svg)](https://github.com/mmcs-ruby/josephjoguts/visual_graphs/workflows/main.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/48549da79ca45b3cc525/maintainability)](https://codeclimate.com/github/mmcs-ruby/visual_graphs/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/48549da79ca45b3cc525/test_coverage)](https://codeclimate.com/github/mmcs-ruby/visual_graphs/test_coverage)
+
 # VisualGraphs
 
 ## Usage
