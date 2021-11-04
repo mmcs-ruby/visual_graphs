@@ -22,6 +22,7 @@ module VisualGraphs
       @adjacency_list.keys
     end
 
+
     def insert_vertex(vertex)
       unless @adjacency_list.keys.include? vertex
         @adjacency_list[vertex] = []

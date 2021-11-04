@@ -49,6 +49,7 @@ class AdjacencyListGraphTest < Minitest::Test
     assert_equal 1, graph.edges.count([1,2])
   end
 
+
   def test_non_existent_edge_will_be_inserted
     graph = Graph.new(@filepath)
     graph.insert_edge([1,4])
