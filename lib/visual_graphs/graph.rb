@@ -14,6 +14,7 @@ module VisualGraphs
         @adjacency_list[temp_k] = v
         v.each { |adj_vertex| @edges << [temp_k, adj_vertex] }
       end
+      file.close
     end
 
 
