@@ -36,6 +36,7 @@ module VisualGraphs
       unless @edges.include? edge
         insert_vertex(edge[0])
         insert_vertex(edge[1])
+        @adjacency_list[edge[0]] << edge[1]
         @edges << edge
         return true
       end

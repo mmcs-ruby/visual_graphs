@@ -9,7 +9,30 @@
 ```ruby
 graph = Graph.new(path_to_file)
 graph.vertices #return list of vertices
+graph.edges #return list of edges
 ```
+```ruby
+#adding new vertex (vertex could be numbers,chars .etc)
+# if vertex is already exists it will not be added
+graph.insert_vertex(new_vertex)
+```
+```ruby
+#adding new edge for simple Graph
+# vertices will also be included in vertices list of graph if they are not there
+# also add second_vertex to adjacency_list of first_vertex 
+graph.insert_edge([first_vertex,second_vertex])
+```
+```ruby
+graph.output_to_standard_stream # prints graph(adjacency_list)
+```
+```ruby
+#will create(overwrite) json_file and save adjacency_list in it
+#json_file name must ends with .json 
+graph.dump_to_json(path_to_file)
+```
+
+
+
 ## Data formats
 
 ```json

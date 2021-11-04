@@ -37,6 +37,11 @@ class AdjacencyListGraphTest < Minitest::Test
     end
   end
 
+  def test_adding_edge_will_add_adge_to_adjacency_list
+    graph = Graph.new(@filepath)
+    graph.insert_edge([1, 5])
+    assert_equal true, graph.instance_variable_get(:@adjacency_list)[1].include?(5), 'vertex was not added to adjacency_list'
+  end
 
   def test_existing_edge_will_not_be_inserted
     graph = Graph.new(@filepath)
