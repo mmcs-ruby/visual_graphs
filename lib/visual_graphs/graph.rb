@@ -4,19 +4,36 @@ require 'json'
 
 module VisualGraphs
   class Graph
-    def initialize(path)
-      file = File.open(path)
+    attr_accessor :adjacency_list
+    attr_accessor :edges
+
+    def initialize
       @adjacency_list = {}
       @edges = []
+    end
+
+    def self.load_from_json(path)
+      graph = Graph.new
+      file = File.open(path)
       temp = JSON.load(file)
       temp.each do |k, v|
         temp_k = k.to_i
-        @adjacency_list[temp_k] = v
-        v.each { |adj_vertex| @edges << [temp_k, adj_vertex] }
+        graph.adjacency_list[temp_k] = v
+        v.each { |adj_vertex|  graph.edges << [temp_k, adj_vertex] }
       end
       file.close
+      graph
     end
 
+
+    def self.adjacency_list_init(list)
+      graph = Graph.new
+      list.each do |pair|
+        graph.adjacency_list.store(pair[0], pair[1])
+        pair[1].each {|vertex| graph.edges << [pair[0], vertex] }
+      end
+      graph
+    end
 
     def vertices
       @adjacency_list.keys
@@ -31,7 +48,7 @@ module VisualGraphs
       false
     end
 
-    # edge is array [1,[2,3]] , where 1 and 2 are vertex , 3 - edge weight
+    # edge is array [1,2] , where 1 and 2 are vertex
     # also will insert vertexes unless they are not in adjecency_list
     def insert_edge(edge)
       unless @edges.include? edge

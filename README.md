@@ -7,7 +7,14 @@
 ## Usage
 
 ```ruby
-graph = Graph.new(path_to_file)
+#simple not weighted graph
+# json import
+graph = Graph.load_from_json(path)
+
+#initialization from hash
+hash_graph = {1 => [2, 3], 2 => [1, 4]}
+graph = Graph.adjacency_list_init(hash_graph)
+
 graph.vertices #return list of vertices
 graph.edges #return list of edges
 ```
@@ -20,7 +27,7 @@ graph.insert_vertex(new_vertex)
 #adding new edge for simple Graph
 # vertices will also be included in vertices list of graph if they are not there
 # also add second_vertex to adjacency_list of first_vertex 
-graph.insert_edge([first_vertex,second_vertex])
+graph.insert_edge([first_vertex, second_vertex])
 ```
 ```ruby
 graph.output_to_standard_stream # prints graph(adjacency_list)
@@ -31,16 +38,47 @@ graph.output_to_standard_stream # prints graph(adjacency_list)
 graph.dump_to_json(path_to_file)
 ```
 
+```ruby
+WeightedGraph - weighted_adjacency_list
 
+# json import
+# will raise error if 
+graph = WeightedGraph.load_from_json(path)
+
+#initialization from hash
+hash_graph = {1 => [[2, 3]], 2 => [[1, 4]]}
+graph = WeightedGraph.adjacency_list_init(hash_graph)
+
+graph.vertices #return list of vertices
+graph.edges #return list of edges
+
+#v1,v2 vertices,w - weight
+graph.insert_edge([v1,[v2,w]])
+```
 
 ## Data formats
 
-```json
+```
+for simple not weighted Graph class
 {
   "1":[2],
   "2":[3],
-  "3":[1]
+  "3":[1,4]
+  "4": []
 }
+
+hash = {1 => [2,3]}
+
+for weightedGraph 
+{
+  "1":[[2,1]],
+  "2":[[3,4]],
+  "3":[[1,5],[4,6]]
+  "4": []
+}
+
+hash = {1 => [[2,3], [3,4]]}
+
 ```
 
 
