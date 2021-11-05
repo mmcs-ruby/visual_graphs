@@ -79,8 +79,5 @@ module VisualGraphs
       File.open(path, 'w') { |f| f.write(@adjacency_list.to_json) }
     end
 
-    def edges
-      @edges
-    end
   end
 end

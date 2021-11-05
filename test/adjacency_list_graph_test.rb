@@ -7,7 +7,7 @@ class AdjacencyListGraphTest < Minitest::Test
   def setup
     @filepath = 'test/resources/test_data.json'
     @output_file_path = 'test/resources/output_test_data.json'
-    File.delete @output_file_path if File.exists? @output_file_path
+    File.delete @output_file_path if File.exist? @output_file_path
   end
 
   def test_json_file_created_when_graph_was_dumped_to_json
