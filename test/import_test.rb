@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require "./test/test_helper"
 
 class ImportGraphTest < Minitest::Test
   include VisualGraphs
@@ -9,13 +9,13 @@ class ImportGraphTest < Minitest::Test
   end
 
   def test_json_import_vertices_size
-    graph = Graph.new(@filepath)
-    assert_equal 3, graph.vertices.size, "vertices size do not match"
+    graph = Graph.load_from_json(@filepath)
+    assert_equal 3, graph.vertices.size, 'vertices size do not match'
   end
 
   def test_json_import_edges_size
-    graph = Graph.new(@filepath)
-    assert_equal 3, graph.edges.size, "edges size do not match"
+    graph = Graph.load_from_json(@filepath)
+    assert_equal 3, graph.edges.size, 'edges size do not match'
   end
 
 end
