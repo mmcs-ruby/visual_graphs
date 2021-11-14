@@ -56,6 +56,36 @@ graph.edges #return list of edges
 graph.insert_edge([v1,[v2,w]])
 ```
 
+```ruby
+# Graph based on adjacency matrix
+
+# creating a graph using default constructor
+graph = AdjMatrixGraph.new
+
+# loading a graph from JSON-file
+graph.load_from_json(path)
+
+# unloading a graph into JSON-file
+graph.dump_to_json(path)
+
+# loading a graph from an object of Array type
+object = [[2, 1], [3, 4]] # adjacency matrix as Array object
+graph.load_from_array(object)
+
+# getting vertices and edges from graph
+graph.vertices
+graph.edges
+
+# adding vertices and edges to the graph
+vertex = 8
+graph.add_vertex(vertex)
+edge = [[3, 5], 4] # edge from vertex 3 to vertex 5 with weight 4
+graph.add_edge(edge)
+
+# prints a graph to console
+puts graph
+```
+
 ## Data formats
 
 ```
