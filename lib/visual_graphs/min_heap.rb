@@ -22,20 +22,22 @@ module VisualGraphs
     # override add to array method - preserve the min heap property
     def <<(element)
       @elements << element
-      @element_position_map[element.value] = @elements.size - 1
+      @element_position_map[element.key] = @elements.size - 1
 
       sift_up(@elements.size - 1)
     end
 
+    # count amount of actual elements in heap
     def count
       @elements.count - 1 # do not count the nil element at position[0]
     end
 
+    # get array of heap elements
     def elements
       @elements.drop(1) # make sure nil element is removed
     end
 
-    # get the minimum value from the heap
+    # get the minimum key from the heap
     def peek_min
       @elements[1]
     end
@@ -48,7 +50,7 @@ module VisualGraphs
 
       # remove the last element
       min_element = @elements.pop
-      @element_position_map.delete(min_element.value)
+      @element_position_map.delete(min_element.key)
 
       # make sure the tree is ordered - call the helper method to sift down the new root node into appropriate position
       sift_down(1)
@@ -58,12 +60,14 @@ module VisualGraphs
 
     end
 
+    # check if heap contains element
     def contains_element(element)
-      @element_position_map.key?(element.value)
+      @element_position_map.key?(element.key)
     end
 
+    # delete heap element with key of elem_to_delete
     def delete_element(element)
-      element_position = @element_position_map[element.value]
+      element_position = @element_position_map[element.key]
 
       return if element_position.nil?
 
@@ -72,7 +76,7 @@ module VisualGraphs
 
       # remove the last element
       element_to_remove = @elements.pop
-      @element_position_map.delete(element_to_remove.value)
+      @element_position_map.delete(element_to_remove.key)
 
       # make sure the tree is ordered - call the helper method to sift down the new root node into appropriate position
       sift_down(element_position)
@@ -81,13 +85,14 @@ module VisualGraphs
 
     end
 
+    # print heap keys
     def print_heap
       puts 'printing min heap:'
       @elements.each do |element|
         if element.nil?
           puts 'nil'
         else
-          puts element.value.to_s
+          puts element.key.to_s
         end
 
       end
@@ -95,7 +100,7 @@ module VisualGraphs
 
     private
 
-    # this method ensures the min-heap property is retained
+    # ensure the min-heap property is retained
     def sift_up(index)
 
       # we get the parent of the index so we can see if it is larger than the new node
@@ -146,14 +151,14 @@ module VisualGraphs
       tmp_source = @elements[source_index]
       tmp_target = @elements[target_index]
 
-      source_element_position = @element_position_map[tmp_source.value]
-      target_element_position = @element_position_map[tmp_target.value]
+      source_element_position = @element_position_map[tmp_source.key]
+      target_element_position = @element_position_map[tmp_target.key]
 
       @elements[source_index] = tmp_target
       @elements[target_index] = tmp_source
 
-      @element_position_map[tmp_source.value] = target_element_position
-      @element_position_map[tmp_target.value] = source_element_position
+      @element_position_map[tmp_source.key] = target_element_position
+      @element_position_map[tmp_target.key] = source_element_position
 
     end
 
