@@ -1,12 +1,9 @@
 module VisualGraphs
   class Vertex
-    private
     attr_accessor :name
-    public
     attr_accessor :value
     attr_accessor :color
 
-    public
     def initialize(params = {})
       check_argument_is_a_numeric(params.fetch(:value))
       check_argument_is_a_string(params.fetch(:name, ""))

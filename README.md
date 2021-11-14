@@ -19,6 +19,19 @@ graph.vertices #return list of vertices
 graph.edges #return list of edges
 ```
 ```ruby
+#USAGE of Vertex Class
+# initialization:
+vertex = Vertex.new(:name => "name", :value => 10, :color => "black")
+# default name is empty string (""), default color is "black"
+```
+```ruby
+# print Vertex info to output:
+vertex.print_to_output()
+# it will be formatted like:
+# "Vertex name: {name}, value: {value}, color: {color}"
+
+```
+```ruby
 #adding new vertex (vertex could be numbers,chars .etc)
 # if vertex is already exists it will not be added
 graph.insert_vertex(new_vertex)
