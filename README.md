@@ -72,17 +72,15 @@ graph.dump_to_json(path)
 object = [[2, 1], [3, 4]] # adjacency matrix as Array object
 graph.load_from_array(object)
 
-# getting vertices and edges from graph
+# getting arrays of vertices and edges from graph
 graph.vertices
 graph.edges
 
 # adding vertices and edges to the graph
-vertex = 8
-graph.add_vertex(vertex)
-edge = [[3, 5], 4] # edge from vertex 3 to vertex 5 with weight 4
-graph.add_edge(edge)
+graph.add_vertex(8)
+graph.add_edge(3, 5, 4) # edge from vertex 3 to vertex 5 with weight 4
 
-# prints a graph to console
+# prints a graph to console in a nice way
 puts graph
 ```
 
