@@ -27,4 +27,43 @@ class VertexTestTest < Minitest::Test
     v1.name = "newname"
     assert_equal v1.name, "newname", "name isn't matching"
   end
+  def test_name_set
+    assert_raises TypeError do
+      v1 = Vertex.new(:name => "name", :value => 10, :color => "red")
+      v1.name = 666
+    end
+  end
+  def test_value_set
+    assert_raises TypeError do
+      v1 = Vertex.new(:name => "name", :value => 10, :color => "red")
+      v1.value = "666"
+    end
+  end
+  def test_color_set
+    assert_raises TypeError do
+      v1 = Vertex.new(:name => "name", :value => 10, :color => "red")
+      v1.color = 666
+    end
+  end
+  def test_key_set
+    assert_raises TypeError do
+      v1 = Vertex.new(:name => "name", :value => 10, :color => "red")
+      v1.key = "newname"
+    end
+  end
+  def test_vertex_less
+    v1 = Vertex.new(:key => 1, :name => "name", :value => 10, :color => "red")
+    v2 = Vertex.new(:key => 2, :name => "name", :value => 10, :color => "red")
+    assert_operator v1, :<, v2
+  end
+  def test_vertex_above_equal
+    v1 = Vertex.new(:key => 1, :name => "name", :value => 10, :color => "red")
+    v2 = Vertex.new(:key => 2, :name => "name", :value => 10, :color => "red")
+    assert_operator v2, :>=, v1
+  end
+  def test_vertex_less_equal
+    v1 = Vertex.new(:key => 1, :name => "name", :value => 10, :color => "red")
+    v2 = Vertex.new(:key => 1, :name => "name", :value => 10, :color => "red")
+    assert_operator v1, :<=, v2
+  end
 end

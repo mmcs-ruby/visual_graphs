@@ -3,10 +3,6 @@
 module VisualGraphs
 
   class Vertex
-    attr_accessor :name
-    attr_accessor :value
-    attr_accessor :color
-    attr_accessor :key
 
     def initialize(params = {})
       @name = params.fetch(:name, "")

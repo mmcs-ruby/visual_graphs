@@ -11,7 +11,8 @@ module VisualGraphs
     # MinHeap has the property that all nodes are larger than their parent
     # smallest element of the minheap is at the root
 
-    attr_accessor :elements, :element_position_map
+    attr_accessor :element_position_map
+    attr_writer :elements
 
     # initialize an empty array with nil at the 0 index (to make math easier)
     def initialize
