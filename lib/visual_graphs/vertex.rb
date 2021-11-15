@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module VisualGraphs
+
   class Vertex
     attr_accessor :name
     attr_accessor :value
     attr_accessor :color
+    attr_accessor :key
 
     def initialize(params = {})
-      check_argument_is_a_numeric(params.fetch(:value))
-      check_argument_is_a_string(params.fetch(:name, ""))
-      check_argument_is_a_string(params.fetch(:color, "black"))
       @name = params.fetch(:name, "")
-      @value = params.fetch(:value)
+      @value = params.fetch(:value, 0)
       @color = params.fetch(:color, "black")
+      @key = params.fetch(:key, 0)
     end
 
     def name
@@ -18,11 +20,51 @@ module VisualGraphs
     end
 
     def name=(name)
+      check_argument_is_a_string(name)
       @name = name
+    end
+
+    def value
+      @value
+    end
+
+    def value=(value)
+      check_argument_is_a_numeric(value)
+      @value = value
+    end
+
+    def color
+      @color
+    end
+
+    def color=(color)
+      check_argument_is_a_string(color)
+      @color = color
+    end
+
+    def key
+      @key
+    end
+
+    def key=(key)
+      check_argument_is_a_numeric(key)
+      @key = key
     end
 
     def print_to_output
       puts "Vertex name: #{name}, value: #{value}, color: #{color}"
+    end
+
+    def >=(other)
+      @key >= other.key
+    end
+
+    def <=(other)
+      @key <= other.key
+    end
+
+    def <(other)
+      @key < other.key
     end
 
     private
