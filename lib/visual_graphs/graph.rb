@@ -79,5 +79,50 @@ module VisualGraphs
       File.open(path, 'w') { |f| f.write(@adjacency_list.to_json) }
     end
 
+    def ==(other_object)
+      if other_object.is_a? self.class
+        if not (self.vertices.sort == other_object.vertices.sort)
+          return false
+        end
+
+        if not (self.edges.sort == other_object.edges.sort)
+          return false
+        end
+        return true
+      end
+      false
+    end
+
+    def ===(other_object)
+      self == other_object
+    end
+
+    def eql?(other_object)
+      if other_object.is_a? self.class
+        if not (self.vertices.sort.eql? other_object.vertices.sort)
+          return false
+        end
+
+        if not (self.edges.sort.eql? other_object.edges.sort)
+          return false
+        end
+        return true
+      end
+      false
+    end
+
+    def equal?(other_object)
+      if other_object.is_a? self.class
+        if not (self.vertices.sort.equal? other_object.vertices.sort)
+          return false
+        end
+
+        if not (self.edges.sort.equal? other_object.edges.sort)
+          return false
+        end
+        return true
+      end
+      false
+    end
   end
 end
