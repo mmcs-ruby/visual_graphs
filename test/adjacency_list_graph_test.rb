@@ -13,7 +13,7 @@ class AdjacencyListGraphTest < Minitest::Test
   def test_json_file_created_when_graph_was_dumped_to_json
     graph = Graph.load_from_json(@filepath)
     graph.dump_to_json(@output_file_path)
-    assert_equal true, File.exists?(@output_file_path), 'json file was not created'
+    assert_equal true, File.exist?(@output_file_path), 'json file was not created'
   end
 
   def test_dumped_graph_in_json_file_is_correct

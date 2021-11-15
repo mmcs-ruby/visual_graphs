@@ -19,16 +19,19 @@ module VisualGraphs
     def check_adjacency_matrix(obj)
       msg = 'Adjacency matrix should have Array type'
       raise AdjacencyMatrixError, msg unless obj.instance_of?(Array)
-
-      msg1 = 'Array`s elements must be arrays'
-      msg2 = 'Inner arrays should have same length as outer array'
-      msg3 = 'Values of matrix should not be negative'
       obj.each do |x|
-        raise AdjacencyMatrixError, msg1 unless x.instance_of?(Array)
-        raise AdjacencyMatrixError, msg2 unless obj.length == x.length
-        raise AdjacencyMatrixError, msg3 unless x.all? { |elem| elem >= 0 }
+        validate_adjacency_row(obj, x)
       end
     end
+
+    def validate_adjacency_row(obj, x)
+      raise AdjacencyMatrixError, 'Array`s elements must be arrays' unless x.instance_of?(Array)
+
+      raise AdjacencyMatrixError, 'Inner arrays should have same length as outer array' unless obj.length == x.length
+
+      raise AdjacencyMatrixError, 'Values of matrix should not be negative' unless x.all? { |elem| elem >= 0 }
+    end
+
 
     # Supporting method that gets an array of edges from an adjacency matrix
     def get_edges_from_matrix(mat)

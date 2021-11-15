@@ -45,7 +45,7 @@ module  VisualGraphs
         @adjacency_list[edge[0]] << edge[1]
         @edges << edge
         return true
-        end
+      end
       false
     end
 

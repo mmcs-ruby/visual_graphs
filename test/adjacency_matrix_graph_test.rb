@@ -122,10 +122,8 @@ class AdjMatrixGraphTest < Minitest::Test
     graph = AdjMatrixGraph.new
     graph.load_from_array([[5]])
     assert_equal "Adjacency matrix:\n5  \n", graph.to_s
-    puts graph
     graph.load_from_array([[23, 2], [3, 48]])
     assert_equal "Adjacency matrix:\n23 2  \n3  48 \n", graph.to_s
-    puts graph
   end
 
 end
