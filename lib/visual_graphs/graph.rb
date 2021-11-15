@@ -111,18 +111,5 @@ module VisualGraphs
       false
     end
 
-    def equal?(other_object)
-      if other_object.is_a? self.class
-        if not (self.vertices.sort.equal? other_object.vertices.sort)
-          return false
-        end
-
-        if not (self.edges.sort.equal? other_object.edges.sort)
-          return false
-        end
-        return true
-      end
-      false
-    end
   end
 end

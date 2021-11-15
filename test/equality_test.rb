@@ -34,8 +34,8 @@ class EqualityTest < Minitest::Test
 
   def test_equal
     hash_graph9 =  Graph.adjacency_list_init({1 => [2], 2 => [3], 3 => [1]})
-    hash_graph10 = Graph.adjacency_list_init({2 => [3], 3 => [1], 1 => [2]})
-    hash_graph11 = Graph.adjacency_list_init({5 => [3], 7 => [5], 2 => [1]})
+    hash_graph10 = hash_graph9
+    hash_graph11 = Graph.adjacency_list_init({1 => [2], 2 => [3], 3 => [1]})
 
     assert_equal true,  hash_graph9.equal?(hash_graph10)
     assert_equal false, hash_graph9.equal?(hash_graph11)
