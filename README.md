@@ -15,6 +15,19 @@ graph = Graph.load_from_json(path)
 hash_graph = {1 => [2, 3], 2 => [1, 4]}
 graph = Graph.adjacency_list_init(hash_graph)
 
+#==
+# Сравнивает два графа.
+
+#===
+# Сравнивает псевдоним ==.
+ 
+# eql?
+# Сравнивает по хешу.
+ 
+# equal?
+# Сравнивает по ссылке. Реализован в object
+ 
+
 graph.vertices #return list of vertices
 graph.edges #return list of edges
 ```
