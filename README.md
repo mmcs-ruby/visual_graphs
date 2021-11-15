@@ -26,9 +26,9 @@ vertex = Vertex.new(:name => "name", :value => 10, :color => "black")
 ```
 ```ruby
 # print Vertex info to output:
-vertex.print_to_output()
+puts `vertex = #{vertex}`
 # it will be formatted like:
-# "Vertex name: {name}, value: {value}, color: {color}"
+# "vertex = Vertex <key: 0 value: 10 color: red name: name>"
 
 ```
 ```ruby
@@ -70,6 +70,40 @@ graph.insert_edge([v1,[v2,w]])
 ```
 
 ```ruby
+
+MinHeap - min_heap
+# used for implementation of Prim's algorithm
+
+# initializes empty heap
+min_heap = MinHeap.new
+
+# insertion of new vertex
+min_heap << Vertex.new(key: 2, value: 3)
+
+# delete heap element with key of elem_to_delete
+elem_to_delete = Vertex.new(key: 12)
+deleted = min_heap.delete_element(elem_to_delete)
+
+# count amount of actual elements in heap
+cnt = min_heap.count
+
+# get the minimum key from the heap
+vert = min_heap.peek_min
+
+# iteration of heap elements
+min_heap.elements.each_with_index do |element, index|
+  puts "#{index} element: #{element}"
+end
+
+# return the actual elements and re-heapify the minheap
+vert = min_heap.extract_min
+
+# check if heap contains element
+min_heap.contains_element(element)
+
+# print heap element.to_s for each heap element line by line
+min_heap.print_heap
+
 # Graph based on adjacency matrix
 
 # creating a graph using default constructor
