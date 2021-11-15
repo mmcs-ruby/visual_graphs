@@ -19,6 +19,19 @@ graph.vertices #return list of vertices
 graph.edges #return list of edges
 ```
 ```ruby
+#USAGE of Vertex Class
+# initialization:
+vertex = Vertex.new(:name => "name", :value => 10, :color => "black")
+# default name is empty string (""), default color is "black"
+```
+```ruby
+# print Vertex info to output:
+vertex.print_to_output()
+# it will be formatted like:
+# "Vertex name: {name}, value: {value}, color: {color}"
+
+```
+```ruby
 #adding new vertex (vertex could be numbers,chars .etc)
 # if vertex is already exists it will not be added
 graph.insert_vertex(new_vertex)
@@ -57,6 +70,7 @@ graph.insert_edge([v1,[v2,w]])
 ```
 
 ```ruby
+
 MinHeap - min_heap
 # used for implementation of Prim's algorithm
 
@@ -90,6 +104,32 @@ min_heap.contains_element(element)
 # print heap keys
 min_heap.print_heap
 
+
+# Graph based on adjacency matrix
+
+# creating a graph using default constructor
+graph = AdjMatrixGraph.new
+
+# loading a graph from JSON-file
+graph.load_from_json(path)
+
+# unloading a graph into JSON-file
+graph.dump_to_json(path)
+
+# loading a graph from an object of Array type
+object = [[2, 1], [3, 4]] # adjacency matrix as Array object
+graph.load_from_array(object)
+
+# getting arrays of vertices and edges from graph
+graph.vertices
+graph.edges
+
+# adding vertices and edges to the graph
+graph.add_vertex(8)
+graph.add_edge(3, 5, 4) # edge from vertex 3 to vertex 5 with weight 4
+
+# prints a graph to console in a nice way
+puts graph
 ```
 
 ## Data formats
