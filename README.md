@@ -26,9 +26,9 @@ vertex = Vertex.new(:name => "name", :value => 10, :color => "black")
 ```
 ```ruby
 # print Vertex info to output:
-vertex.print_to_output()
+puts `vertex = #{vertex}`
 # it will be formatted like:
-# "Vertex name: {name}, value: {value}, color: {color}"
+# "vertex = Vertex <key: 0 value: 10 color: red name: name>"
 
 ```
 ```ruby
@@ -101,9 +101,8 @@ vert = min_heap.extract_min
 # check if heap contains element
 min_heap.contains_element(element)
 
-# print heap keys
+# print heap element.to_s for each heap element line by line
 min_heap.print_heap
-
 
 # Graph based on adjacency matrix
 

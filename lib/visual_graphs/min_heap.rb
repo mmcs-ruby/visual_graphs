@@ -93,7 +93,7 @@ module VisualGraphs
         if element.nil?
           puts 'nil'
         else
-          puts element.key.to_s
+          puts element.to_s
         end
 
       end
