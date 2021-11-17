@@ -1,0 +1,7 @@
+printing min heap:
+nil
+Vertex <key: 5 value: 5 color: black name: >
+Vertex <key: 6 value: 6 color: black name: >
+Vertex <key: 8 value: 8 color: black name: >
+Vertex <key: 12 value: 12 color: black name: >
+Vertex <key: 7 value: 7 color: black name: >
