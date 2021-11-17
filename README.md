@@ -131,6 +131,30 @@ graph.add_edge(3, 5, 4) # edge from vertex 3 to vertex 5 with weight 4
 puts graph
 ```
 
+## Algorithms usage
+
+```ruby
+
+# initializes Algorithms object
+alg = Algorithms.new
+
+# matrix example
+matrix = AdjMatrixGraph.new
+matrixSrc = [[0, 0, 2],
+             [2, 0, 0],
+             [0, 2, 0]]
+matrix.load_from_array(matrixSrc)
+
+# lambda which will be used for each vertex
+my_print = lambda { |n| print(n) }
+
+# matrix_DFS call
+alg.matrix_DFS(matrix, my_print)
+# 0 2 1 
+
+```
+
+
 ## Data formats
 
 ```

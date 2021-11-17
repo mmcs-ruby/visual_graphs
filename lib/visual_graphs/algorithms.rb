@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 module VisualGraphs
+  # class with different algorithms for graphs
   class Algorithms
 
     # Depth-First Search, (for adjacency matrix based graph)
-    def DFS(graph_matrix, vertexAction)
+    def matrix_DFS(graph_matrix, vertexAction)
 
       if !graph_matrix.is_a?(AdjMatrixGraph)
         msg = 'argument must be of AdjMatrixGraph type'
