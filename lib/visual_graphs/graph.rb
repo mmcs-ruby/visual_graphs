@@ -79,5 +79,20 @@ module VisualGraphs
       File.open(path, 'w') { |f| f.write(@adjacency_list.to_json) }
     end
 
+    # convert adjacency list based graph to adjacency matrix based graph
+    # return adjacency matrix based graph
+    def to_adj_matrix_graph
+      array_graph = []
+      @adjacency_list.each do |pair|
+        array_graph.push(Array.new(@adjacency_list.length,0))
+        pair[1].to_a.each do |v|
+          array_graph[pair[0]-1][v-1] = 1
+        end
+      end
+      gr = AdjMatrixGraph.new()
+      gr.load_from_array(array_graph)
+      gr
+    end
+
   end
 end
