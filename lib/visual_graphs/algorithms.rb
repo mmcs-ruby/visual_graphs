@@ -7,10 +7,8 @@ module VisualGraphs
     # Depth-First Search, (for adjacency matrix based graph)
     def matrix_DFS(graph_matrix, vertexAction)
 
-      if !graph_matrix.is_a?(AdjMatrixGraph)
-        msg = 'argument must be of AdjMatrixGraph type'
-        raise AdjacencyMatrixError, msg
-      end
+      msg = 'argument must be of AdjMatrixGraph type'
+      raise AdjacencyMatrixError, msg unless graph_matrix.is_a?(AdjMatrixGraph)
 
       matrix = graph_matrix.adjacency_matrix
       initial_index = 0
@@ -27,18 +25,13 @@ module VisualGraphs
         vertexAction.call(curr_node)
 
         children = (0..matrix.length-1).to_a.select do |i|
-
           # do not process loops
-          if curr_node == i
-            next
-          end
-
-          if visited.find{|v| v == i} != nil
-            next
-          end
+          next if curr_node == i
+          next if visited.find{|v| v == i} != nil
 
           matrix[curr_node][i] != 0
         end
+
         node_stack = node_stack + children
       end
     end
