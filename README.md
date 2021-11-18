@@ -139,6 +139,30 @@ graphMatrix.to_s # => "Adjacency matrix:\n0  1  \n1  0  \n"
 ```
 
 
+## Algorithms usage
+
+```ruby
+
+# initializes Algorithms object
+alg = Algorithms.new
+
+# matrix example
+matrix = AdjMatrixGraph.new
+matrixSrc = [[0, 0, 2],
+             [2, 0, 0],
+             [0, 2, 0]]
+matrix.load_from_array(matrixSrc)
+
+# lambda which will be used for each vertex
+my_print = lambda { |n| print(n) }
+
+# matrix_DFS call
+alg.matrix_DFS(matrix, my_print)
+# 0 2 1 
+
+```
+
+
 ## Data formats
 
 ```
