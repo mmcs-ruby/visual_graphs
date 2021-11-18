@@ -89,7 +89,7 @@ module VisualGraphs
           array_graph[pair[0]-1][v-1] = 1
         end
       end
-      gr = AdjMatrixGraph.new()
+      gr = AdjMatrixGraph.new
       gr.load_from_array(array_graph)
       gr
     end
