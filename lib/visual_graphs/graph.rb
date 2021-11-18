@@ -79,5 +79,26 @@ module VisualGraphs
       File.open(path, 'w') { |f| f.write(@adjacency_list.to_json) }
     end
 
+    def each(&block)
+      if block_given?
+        @edges.each { |e| yield e}
+        self
+      else
+        @edges.to_enum
+      end
+    end
+
+    def each_with_index(&block)
+      if block_given?
+        @edges.each_with_index { |e, i| yield(e, i) }
+        self
+      else
+        @edges.to_enum
+      end
+    end
+
+
+
   end
+
 end
