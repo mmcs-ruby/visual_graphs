@@ -130,6 +130,14 @@ graph.add_edge(3, 5, 4) # edge from vertex 3 to vertex 5 with weight 4
 # prints a graph to console in a nice way
 puts graph
 ```
+Convert adjacency list based graph to adjacency matrix based graph
+return adjacency matrix based graph
+``` ruby
+graphList = Graph.adjacency_list_init({1 => [2],2 => [1]})
+graphMatrix = graphList.to_adj_matrix_graph
+graphMatrix.to_s # => "Adjacency matrix:\n0  1  \n1  0  \n"
+```
+
 
 ## Data formats
 
