@@ -2,6 +2,7 @@
 
 require_relative "visual_graphs/version"
 require_relative "visual_graphs/graph"
+require_relative 'visual_graphs/algorithms/Kruskal'
 require_relative 'visual_graphs/adjacency_matrix_graph'
 
 module VisualGraphs
