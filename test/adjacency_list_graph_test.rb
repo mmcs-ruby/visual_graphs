@@ -96,4 +96,42 @@ class AdjacencyListGraphTest < Minitest::Test
     assert_equal 1, graph.vertices.count(4), 'more than 1 vertex was added during looped-edge inserting'
   end
 
+  def test_each_for_edges_array
+    graph = Graph.load_from_json(@filepath)
+    test_arr=[]
+    graph.each { |x| test_arr.append(x) }
+    assert_equal [[1,2], [2, 3], [3, 1]], test_arr
+    test_arr.clear
+    graph.insert_edge([1,4])
+    graph.each { |x| test_arr.append(x) }
+    assert_equal [[1,2], [2, 3], [3, 1],[1, 4]], test_arr
+    test_arr.clear
+    graph.insert_edge([3,2])
+    graph.each { |x| test_arr.append(x) }
+    assert_equal [[1,2], [2, 3], [3, 1],[1, 4], [3, 2]],test_arr
+  end
+
+  def test_each_with_index_for_edges_array
+    graph = Graph.load_from_json(@filepath)
+    test_arr=[]
+    graph.each_with_index{ |x, i| test_arr.append(x, i)}
+    assert_equal [[1, 2], 0, [2, 3], 1, [3, 1], 2],test_arr
+    test_arr.clear
+    graph.insert_edge([4, 4])
+    graph.each_with_index { |x,i| test_arr.append(x, i)}
+    assert_equal [[1, 2], 0, [2, 3], 1, [3, 1], 2, [4, 4], 3], test_arr
+    test_arr.clear
+    graph.insert_edge([1,4])
+    graph.insert_edge([2,5])
+    graph.each_with_index { |x, i| test_arr.append(x, i)}
+    assert_equal [[1, 2], 0, [2, 3], 1, [3, 1], 2, [4, 4], 3, [1, 4], 4, [2, 5], 5], test_arr
+    test_arr.clear
+    graph.insert_edge([3,5])
+    graph.each_with_index { |x, i| test_arr.append(x, i)}
+    assert_equal [[1, 2], 0, [2, 3], 1, [3, 1], 2, [4, 4], 3, [1, 4], 4, [2, 5], 5, [3, 5], 6], test_arr
+
+
+
+  end
+
 end

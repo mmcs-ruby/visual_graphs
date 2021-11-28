@@ -79,6 +79,27 @@ module VisualGraphs
       File.open(path, 'w') { |f| f.write(@adjacency_list.to_json) }
     end
 
+
+    def each(&block)
+      if block_given?
+        @edges.each { |e| yield e}
+        self
+      else
+        @edges.to_enum
+      end
+    end
+
+    def each_with_index(&block)
+      if block_given?
+        @edges.each_with_index { |e, i| yield(e, i) }
+        self
+      else
+        @edges.to_enum
+      end
+    end
+
+
+
     # convert adjacency list based graph to adjacency matrix based graph
     # return adjacency matrix based graph
     def to_adj_matrix_graph
@@ -95,4 +116,5 @@ module VisualGraphs
     end
 
   end
+
 end
