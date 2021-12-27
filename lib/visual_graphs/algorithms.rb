@@ -14,18 +14,18 @@ module  VisualGraphs
       wh_gr.is_a?(WeightedGraph)
 
       n = wh_gr.adjacency_list.length
-      d = Array.new(n,inf)
+      dist = Array.new(n,inf)
       u = Array.new(n, false)
 
-      d[start] = 0
+      dist[start] = 0
 
       n.times do
         v = -1
-        for j in [0..n] do
+        [0..n].each { |j|
           if not u[j] and (v == -1 or d[j] < d[v])
             v = j
           end
-        end
+        }
 
         if d[v] == inf
           break
@@ -33,17 +33,17 @@ module  VisualGraphs
 
         u[v] = true
 
-        for g in  wh_gr[v] do
+        wh_gr[v].each { |g|
           to = g.first
           len = g.last
 
-          if d[v] + len < d[to]
-            d[to] = d[v] + len
+          if dist[v] + len < dist[to]
+            dist[to] = dist[v] + len
           end
-        end
+        }
       end
 
-      d
+      dist
 
     end
 
