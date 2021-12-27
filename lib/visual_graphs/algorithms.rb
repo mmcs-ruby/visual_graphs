@@ -41,21 +41,23 @@ module  VisualGraphs
 
       number_of_element = wh_gr.adjacency_list.length
       dist = Array.new(number_of_element, @inf)
-      u = Array.new(number_of_element, false)
+      flags = Array.new(number_of_element, false)
 
       dist[start] = 0
 
       number_of_element.times do
         v = -1
         [0..number_of_element-1].each { |j|
-          if not u[j] and (v == -1 or d[j] < d[v])
+          if not flags[j] and (v == -1 or d[j] < d[v])
             v = j
           end
         }
 
-        u[v] = true
+        flags[v] = true
 
-        wh_gr[v].each_with_index { |g, index|
+        #problem with no 0,1,2... graph
+        #!Need to fix logic
+        wh_gr.to_a[v].each_with_index { |g, index|
 
           if dist[v] + g.last < dist[index]
             dist[to] = dist[v] + g.last
