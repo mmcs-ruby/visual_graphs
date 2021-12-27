@@ -5,6 +5,7 @@ module  VisualGraphs
   class Algorithms
     #Dijkstra alg
     # return distance from spec vertex for others
+    # start vertex nums from 0
     def dijkstra(wh_gr, start)
 
       #infinity value
