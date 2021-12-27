@@ -17,12 +17,20 @@ module  VisualGraphs
       if start < 0 or start > wh_gr.length
         raise WrongParamsForAlgorithm
       end
-      wh_gr[v].each do |t|
-        if t.last <= 0
-          raise WrongParamsForAlgorithm
-        end
+
+      unless all_weight_positive(wh_gr)
+        raise WrongParamsForAlgorithm
       end
 
+    end
+
+    def all_weight_positive(wh_gr)
+      wh_gr[v].each do |t|
+        if t.last <= 0
+          return false
+        end
+      end
+      true
     end
 
     def dijkstra(wh_gr, start)
