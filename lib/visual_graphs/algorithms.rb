@@ -52,11 +52,9 @@ module  VisualGraphs
         u[v] = true
 
         wh_gr[v].each_with_index { |g, index|
-          to = index
-          len = g.last
 
-          if dist[v] + len < dist[to]
-            dist[to] = dist[v] + len
+          if dist[v] + g.last < dist[index]
+            dist[to] = dist[v] + g.last
           end
         }
       end
