@@ -3,10 +3,13 @@ require_relative 'weighted_graph'
 module  VisualGraphs
   #Algorihtms class for Visual Graph
   class Algorithms
-    #Dijkstra alg
-    # return distance from spec vertex for others
-    # start vertex nums from 0
-    #
+
+    def init
+      #infinity value
+      @inf = 1000000000
+    end
+
+
     def check_graph_for_dijkstra(wh_gr, start)
 
       #Check class of input value
@@ -29,21 +32,22 @@ module  VisualGraphs
       true
     end
 
+    #Dijkstra alg
+    # return distance from spec vertex for others
+    # start vertex nums from 0
     def dijkstra(wh_gr, start)
 
-      #infinity value
-      inf = 1000000000
       check_graph_for_dijkstra(wh_gr, start)
 
       number_of_element = wh_gr.adjacency_list.length
-      dist = Array.new(number_of_element,inf)
+      dist = Array.new(number_of_element, @inf)
       u = Array.new(number_of_element, false)
 
       dist[start] = 0
 
       number_of_element.times do
         v = -1
-        [0..number_of_element].each { |j|
+        [0..number_of_element-1].each { |j|
           if not u[j] and (v == -1 or d[j] < d[v])
             v = j
           end
