@@ -34,8 +34,8 @@ module  VisualGraphs
 
         u[v] = true
 
-        wh_gr[v].each { |g|
-          to = g.first
+        wh_gr[v].each_with_index { |g, index|
+          to = index
           len = g.last
 
           if dist[v] + len < dist[to]
