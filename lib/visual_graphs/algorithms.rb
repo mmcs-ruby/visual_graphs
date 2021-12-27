@@ -17,6 +17,12 @@ module  VisualGraphs
       if start < 0 or start > wh_gr.length
         raise WrongParamsForAlgorithm
       end
+      wh_gr[v].each do |t|
+        if t.last <= 0
+          raise WrongParamsForAlgorithm
+        end
+      end
+
     end
 
     def dijkstra(wh_gr, start)
