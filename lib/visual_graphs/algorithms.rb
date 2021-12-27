@@ -10,15 +10,11 @@ module  VisualGraphs
     def check_graph_for_dijkstra(wh_gr, start)
 
       #Check class of input value
-      unless wh_gr.is_a?(WeightedGraph)
+      unless wh_gr.is_a?(WeightedGraph) or all_weight_positive(wh_gr)
         raise WrongParamsForAlgorithm
       end
 
       if start < 0 or start > wh_gr.length
-        raise WrongParamsForAlgorithm
-      end
-
-      unless all_weight_positive(wh_gr)
         raise WrongParamsForAlgorithm
       end
 
