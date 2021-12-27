@@ -46,12 +46,7 @@ module  VisualGraphs
       dist[start] = 0
 
       number_of_element.times do
-        v = -1
-        [0..number_of_element-1].each { |j|
-          if not flags[j] and (v == -1 or d[j] < d[v])
-            v = j
-          end
-        }
+        v = find_uncheck_min(number_of_element, flags, dist)
 
         flags[v] = true
 
@@ -66,6 +61,16 @@ module  VisualGraphs
       end
       dist
 
+    end
+
+    def find_uncheck_min(number_of_element, flags, dist)
+      v = -1
+      [0..number_of_element-1].each { |j|
+        if not flags[j] and (v == -1 or dist[j] < dist[v])
+          v = j
+        end
+      }
+      v
     end
 
   end
