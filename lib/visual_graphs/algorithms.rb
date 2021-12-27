@@ -10,27 +10,22 @@ module  VisualGraphs
 
       #infinity value
       inf = 1000000000
-
       #Check class of input value
       wh_gr.is_a?(WeightedGraph)
 
-      n = wh_gr.adjacency_list.length
-      dist = Array.new(n,inf)
-      u = Array.new(n, false)
+      number_of_element = wh_gr.adjacency_list.length
+      dist = Array.new(number_of_element,inf)
+      u = Array.new(number_of_element, false)
 
       dist[start] = 0
 
-      n.times do
+      number_of_element.times do
         v = -1
-        [0..n].each { |j|
+        [0..number_of_element].each { |j|
           if not u[j] and (v == -1 or d[j] < d[v])
             v = j
           end
         }
-
-        if d[v] == inf
-          break
-        end
 
         u[v] = true
 
@@ -43,7 +38,6 @@ module  VisualGraphs
           end
         }
       end
-
       dist
 
     end
