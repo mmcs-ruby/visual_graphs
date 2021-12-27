@@ -17,6 +17,9 @@ module VisualGraphs
   # error which occurs in case of accessing non-existent files
   class FileDoesNotExist < StandardError; end
 
+  #error for wrong inner values in algorithm
+  class WrongParamsForAlgorithm; end
+
   # errors connected with defining of adjacency matrix
   class AdjacencyMatrixError < StandardError
     def initialize(msg = '', exception_type = '')

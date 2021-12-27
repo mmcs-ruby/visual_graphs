@@ -6,12 +6,24 @@ module  VisualGraphs
     #Dijkstra alg
     # return distance from spec vertex for others
     # start vertex nums from 0
+    #
+    def check_graph_for_dijkstra(wh_gr, start)
+
+      #Check class of input value
+      unless wh_gr.is_a?(WeightedGraph)
+        raise WrongParamsForAlgorithm
+      end
+
+      if start < 0 or start > wh_gr.length
+        raise WrongParamsForAlgorithm
+      end
+    end
+
     def dijkstra(wh_gr, start)
 
       #infinity value
       inf = 1000000000
-      #Check class of input value
-      wh_gr.is_a?(WeightedGraph)
+      check_graph_for_dijkstra(wh_gr, start)
 
       number_of_element = wh_gr.adjacency_list.length
       dist = Array.new(number_of_element,inf)
