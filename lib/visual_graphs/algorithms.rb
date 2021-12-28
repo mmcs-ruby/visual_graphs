@@ -54,8 +54,8 @@ module  VisualGraphs
         #!Need to fix logic
         wh_gr.to_a[v].each_with_index { |g, index|
 
-          if dist[v] + g.last < dist[index]
-            dist[to] = dist[v] + g.last
+          if dist[v] + g[1][1] < dist[g[1][0]]
+            dist[g[1][0]] = dist[v] + g[1][1]
           end
         }
       end
